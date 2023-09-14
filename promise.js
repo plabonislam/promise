@@ -54,23 +54,26 @@ important("hey", true)
   console.log(res)
   return shareVideo("fan", false)
  })
- .then(res=>{
+ .then(res => {
   console.log(res)
  })
  .catch(err => console.log(err))
+ .then(() => {
+  console.log("shit")
+ })
 
 
- // promise that executes first will get resolve or reject
- // rest of will not reslove or reject
- Promise.race([
-  important("hey", true),
-  likedVideo("fan", true),
-  shareVideo("fan", false)
- ])
- .then(res=>console.log(res))
- .catch(err=>console.log(err))
+// promise that executes first will get resolve or reject
+// rest of will not reslove or reject
+Promise.race([
+ important("hey", true),
+ likedVideo("fan", true),
+ shareVideo("fan", false)
+])
+ .then(res => console.log(res))
+ .catch(err => console.log(err))
 
 
- //
+//
 
 console.log("end")
